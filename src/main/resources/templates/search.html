@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Search result</title>
+    <h1>Users</h1>
+    <div th:each="user : ${users}">
+        Name: <p th:text="${user.name}"/>
+        Second name: <p th:text="${user.secondName}"/>
+        Age: <p th:text="${user.age}"/>
+    </div>
+</head>

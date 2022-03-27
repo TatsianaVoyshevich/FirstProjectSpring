@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>Home</title>
+    <style type="text/css">
+   TABLE {
+    width: 300px; /* Ширина таблицы */
+    border-collapse: collapse; /* Убираем двойные линии между ячейками */
+   }
+   TD, TH {
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+   }
+   TH {
+    background: #b0e0e6; /* Цвет фона */
+   }
+  </style>
+</head>
+<body>
+Welcome to home page!!!
+<p><a href="/add_user" ><input type="button" value=" Добавить пользователя "></a></p>
+<p><table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Second Name</th>
+        <th scope="col">Age</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.secondName}"></td>
+        <td th:text="${user.age}"></td>
+        <td> <a ref=""><input type="button" value = "Edit"> </a></td>
+        <td> <a th:href="@{user-delete/{id}(id=${user.id})}"><input type ="button" value = "Delete"></a></td>
+    </tr>
+
+    </tbody>
+</table></p>
+<form action="/search">
+    <input name="searchParam" type="search" placeholder="Введите текст" aria-label="Search">
+    <button type="submit">Search</button>
+</form>
+</body>
+</html>
